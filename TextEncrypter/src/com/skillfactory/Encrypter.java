@@ -16,7 +16,7 @@ public class Encrypter {
 	
 	
 	public static void announceDate() {
-		
+
 		calendar.setTime(date);
 		System.out.println(dateFormat.format(date.getTime()));
 		
@@ -45,6 +45,26 @@ public class Encrypter {
 		return result;
 		
 	}
+	
+	public static String EncryptPlusDate(String text) {
+		calendar.setTime(date);
+		String result = "";
+		String dateHello = "Date is: ";
+		String[] words = text.split(" ");
+		for (int i = 0; i < words.length; i++) {
+			char[] chars = words[i].toCharArray();
+			String newWord;
+			for (int j = 0; j < words[i].length(); j++) {
+				chars[j] = EncryptChar(chars[j]);
+			}
+			newWord = String.valueOf(chars);
+			result = result.concat(newWord + " ");
+		}
+		
+		return result + Encrypter.Encrypt(dateHello) + Encrypter.Encrypt(dateFormat.format(date.getTime()));
+		
+	}
+	
 	
 	public static String Decrypt(String text) {
 		String result = "";

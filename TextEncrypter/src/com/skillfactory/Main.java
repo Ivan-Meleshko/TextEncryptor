@@ -13,7 +13,9 @@ public class Main {
 		
 		System.out.println(Encrypter.Encrypt(text2));
 		Encrypter.announceDate();
-		System.out.println(Encrypter.dateToString());
+		
+		System.out.println(Encrypter.EncryptPlusDate(text2));
+		System.out.println(Encrypter.Decrypt(Encrypter.EncryptPlusDate(text2)));
 		
 		
 	}
